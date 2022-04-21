@@ -1,0 +1,18 @@
+<h1>Welcome! Please log in.</h1>
+
+<form id="login" name="login" method="POST" action="/users/login">
+    <div>
+        <label for="username">Username: </label>
+        <input type="text" name="username" required>
+    </div>
+    <div>
+        <label for="password">Password: </label>
+        <input type="password" name="password" required>
+    </div>
+    <div>
+        <button type="submit">Submit</button>
+    </div>
+</form>
+<h3>
+    Don't have an accout? <a href="http://localhost:3000/users/signup">Signup</a>!
+</h3>

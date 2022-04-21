@@ -1,0 +1,12 @@
+<h2>{{Username}}</h2>
+<h2>{{FirstName}} {{LastName}}</h2>
+
+<div>
+    {{#each users}}
+        <h2>{{Username}}</h2>
+        {{#each posts}}
+            <h3>{{PostTitle}}</h3>
+            <h4>{{PostMessage}}</h4>
+        {{/each}}
+    {{/each}}
+</div>
