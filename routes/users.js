@@ -100,33 +100,33 @@ router.get('/profile', function (req, res, next) {
     authService.verifyUser(token)
       .then(user => {
         console.log(user);
-        // models.users.findOne({
-        //   where: {
-        //     Username: user.Username
-        //   },
-        //   include: [{
-        //     model: models.post,
-        //     required: false
-        //   }]
-        // })
-        //   .then(userInfo => {
-        //     console.log(userInfo.posts);
-        //     if (user && !user.Admin) {
-        //       res.render('profile', {
-        //         FirstName: user.FirstName,
-        //         LastName: user.LastName,
-        //         Email: user.Email,
-        //         Username: user.Username,
-        //         UserId: user.UserId,
-        //         posts: userInfo.posts
-        //       });
-        //     } else if (user && user.Admin) {
-        //       res.redirect('/users/admin');
-        //     } else {
-        //       res.status(401);
-        //       res.send('Must be logged in');
-        //     }
-        //   });
+        models.users.findOne({
+          where: {
+            Username: user.Username
+          },
+          include: [{
+            model: models.posts,
+            required: false
+          }]
+        })
+          .then(userInfo => {
+            console.log(userInfo.posts);
+            if (user && !user.Admin) {
+              res.render('profile', {
+                FirstName: user.FirstName,
+                LastName: user.LastName,
+                Email: user.Email,
+                Username: user.Username,
+                UserId: user.UserId,
+                posts: userInfo.posts
+              });
+            } else if (user && user.Admin) {
+              res.redirect('/users/admin');
+            } else {
+              res.status(401);
+              res.send('Must be logged in');
+            }
+          });
       });
   }
 });
