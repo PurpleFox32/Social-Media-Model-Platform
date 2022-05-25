@@ -103,11 +103,7 @@ router.get('/profile', function (req, res, next) {
         models.users.findOne({
           where: {
             Username: user.Username
-          },
-          include: [{
-            model: models.posts,
-            required: false
-          }]
+          }
         })
           .then(userInfo => {
             console.log(userInfo.posts);
