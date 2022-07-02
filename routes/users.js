@@ -69,30 +69,6 @@ router.post('/login', function (req, res, next) {
     });
 });
 
-// router.get('/profile', function (req, res, next) {
-//   let token = req.cookies.jwt;
-//   if (token) {
-//     authService.verifyUser(token)
-//       .then(user => {
-//         if (user && user.Admin) {
-//           res.redirect('/users/admin');
-//         } else if (user && !user.Admin) {
-//           res.render('profile', {
-//             Username: user.Username,
-//             FirstName: user.FirstName,
-//             LastName: user.LastName
-//           });
-//         } else {
-//           res.status(401);
-//           res.send('Must be logged in');
-//         }
-//       })
-//   } else {
-//     res.status(401);
-//     res.send('Must be logged in');
-//   }
-// });
-
 router.get('/profile', function (req, res, next) {
   let token = req.cookies.jwt;
   if (token) {
